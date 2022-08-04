@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 import React,{useContext} from 'react';
 import classes from './MainNavigation.module.css';
 import { useHistory } from 'react-router-dom';
-import BookContext from '../store/book-context';
+import AuthContext from '../store/auth-context';
 const MainNavigation = () => {
-  const bookContext = useContext(BookContext)
-  const isLoggedIn = bookContext.isLoggedIn
+  const authContext = useContext(AuthContext)
+  const isLoggedIn = authContext.isLoggedIn
   const history = useHistory()
 
   const loguotHandler = () =>{
-    bookContext.logout()
+    authContext.logout()
     history.replace('/auth')
   }
 

@@ -7,9 +7,9 @@ import StartingPage from './Components/StartingPage/StartingPageContent'
 import Profile from './Components/Profile/Profile';
 import BookDetails from './UI/BookDetails';
 import { useContext } from 'react';
-import BookContext from './store/book-context';
+import AuthContext from './store/auth-context';
 function App() {
-  const bookContext = useContext(BookContext)
+  const authContext = useContext(AuthContext)
   return (
     <Layout>
       <Switch>
@@ -22,7 +22,7 @@ function App() {
           <Route path='/auth'>
             <AuthPage />
           </Route>
-          {bookContext.isLoggedIn && <Route path='/profile'>
+          {authContext.isLoggedIn && <Route path='/profile'>
             <Profile />
           </Route>}
 

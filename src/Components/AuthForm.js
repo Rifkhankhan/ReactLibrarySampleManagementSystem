@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import BookContext from '../store/book-context';
+import AuthContext from '../store/auth-context';
 
 import classes from './AuthForm.module.css';
 
@@ -11,7 +11,7 @@ const AuthForm = () => {
   const history = useHistory()
 
   //authContext
-  const bookContext = useContext(BookContext)
+  const authContext = useContext(AuthContext)
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -27,7 +27,7 @@ const AuthForm = () => {
     {
         const token = Math.random(100).toString()
         localStorage.setItem('token',token)
-        bookContext.login(token)
+        authContext.login(token)
         history.push('/profile')
     }
   }
