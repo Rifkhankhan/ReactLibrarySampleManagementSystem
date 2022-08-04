@@ -25,9 +25,11 @@ const AuthForm = () => {
 
     if(enteredemailRef && enteredpasswordRef.trim().length >= 6)
     {
-        const token = Math.random(100).toString()
-        localStorage.setItem('token',token)
-        authContext.login(token)
+        const userData = {
+          email:enteredemailRef,
+          password:enteredpasswordRef
+        }
+        authContext.login(userData)
         history.push('/profile')
     }
   }

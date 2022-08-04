@@ -131,38 +131,67 @@ const Dummy_Books =[
 
   const usersBook =[
     {
-       userId:1,
+       userId:'customer1',
        books:[
             {
+              purchasId:'java1@1',
                 id:2,
                 title:'java',
                 author:'James Gosling',
                 description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
-                image:'https://m.media-amazon.com/images/I/514axA2lwpL.jpg'
+                image:'https://m.media-amazon.com/images/I/514axA2lwpL.jpg',
+                type:'borrow'
             },
             {
+                purchasId:'Angular1@1',
                 id:1,
                 title:'Angular',
                 author:'Guido van Rossum',
                 description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
-                image:'https://images-na.ssl-images-amazon.com/images/I/718rCk+pGeL.jpg'
+                image:'https://images-na.ssl-images-amazon.com/images/I/718rCk+pGeL.jpg',
+                type:'borrow'
             },
             {
+                purchasId:'Angular3@1',
                 id:3,
                 title:'Angular',
                 author:'Guido van Rossum',
                 description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
-                image:'https://images-na.ssl-images-amazon.com/images/I/718rCk+pGeL.jpg'
+                image:'https://images-na.ssl-images-amazon.com/images/I/718rCk+pGeL.jpg',
+                type:'buy'
             }
         ]
-    }
+    },
+    {
+      userId:'customer2',
+      books:[
+           {
+                purchasId:'java1@2',
+               id:2,
+               title:'java',
+               author:'James Gosling',
+               description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
+               image:'https://m.media-amazon.com/images/I/514axA2lwpL.jpg',
+               type:'borrow'
+           },
+           {
+               purchasId:'Angular1@2',
+               id:1,
+               title:'Angular',
+               author:'Guido van Rossum',
+               description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
+               image:'https://images-na.ssl-images-amazon.com/images/I/718rCk+pGeL.jpg',
+               type:'buy'
+           }
+       ]
+   }
   ]
 
 
 
 export const BookContextProvider = (props) =>{
     const [books,setBooks] = useState(Dummy_Books)
-    const [userBooks,setUserBooks] = useState(usersBook)
+    const [usersBooks,setUsersBooks] = useState(usersBook)
 
     const addBookHandler = (book) =>{
         const newBook  = {
@@ -199,15 +228,18 @@ export const BookContextProvider = (props) =>{
         setBooks(oldBooks)
     }
 
-    const buyBookHandler = (book,user) =>{
-
+    const buyBookHandler = (Data) =>{
+      usersBook.find(userBook => userBook.userId === Data.userId).books.push({...Data.book,purchasId:Math.random().toString()})
+      setUsersBooks(usersBooks)
     }
 
-    const borrowBookHandler = (book,user) => {}
+    const borrowBookHandler = (Data) => {
+      console.log(Data);
+    }
 
     const getUserBooksHandler = (userId) =>{
-        let Books = userBooks.find(user => user.userId === 1)
-        return [...Books.books]
+        let Books = usersBooks.find(user => user.userId === userId).books
+        return [...Books]
     }
 
     const bookContextValues = {

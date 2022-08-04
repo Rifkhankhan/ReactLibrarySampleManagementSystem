@@ -7,22 +7,23 @@ import BookContext from '../store/book-context'
 
 const BookDetails = (props) => {
 
-   const bookContext = useContext(BookContext)
+    const bookContext = useContext(BookContext)
 
     const params = useParams()
     const authContext = useContext(AuthContext)
     const book = bookContext.getBook(params.bookId)
+    const userId = authContext.token
 
     const onBuyBookHandler = () =>{
         if(authContext.isLoggedIn)
         {
-          console.log('book Buyeid');
+          bookContext.buyBook({book:book,userId:userId})
         }
     }
     const onBorrowBookHandler = () =>{
         if(authContext.isLoggedIn)
         {
-          console.log('book Borrwed');
+          bookContext.borrowBook({book:book,userId:userId})
         }
     }
 
