@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import React,{useContext} from 'react';
 import classes from './MainNavigation.module.css';
 import { useHistory } from 'react-router-dom';
@@ -22,8 +22,8 @@ const MainNavigation = () => {
         <ul>
         {/* { !isLoggedIn &&  <li ><Link to='/auth'>Login</Link></li>}
           {isLoggedIn && (<><li><Link to='/profile'>Profile</Link></li><li><button onClick={loguotHandler}>Logout</button></li></>)}       */}
-          {!isLoggedIn && <li ><Link to='/auth'>Login</Link></li>}
-          {isLoggedIn && <li><Link to='/profile'>Profile</Link></li>}
+          {!isLoggedIn && <li ><NavLink activeClassName={classes.activate} to='/'>Login</NavLink></li>}
+          {isLoggedIn && <li><NavLink activeClassName={classes.activate} to='/profile'>Profile</NavLink></li>}
           {isLoggedIn && <li><button onClick={loguotHandler}>Logout</button></li>}
         </ul>
       </nav>

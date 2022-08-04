@@ -6,8 +6,12 @@ import PageNotFound from './Pages/PageNotFound';
 import StartingPage from './Components/StartingPage/StartingPageContent'
 import Profile from './Components/Profile/Profile';
 import BookDetails from './UI/BookDetails';
+import LibrarianDashboard from './Librarian/StartingPage/LibrarianDashboard'
 import { useContext } from 'react';
 import AuthContext from './store/auth-context';
+import BuyiedBooks from './Librarian/components/BuyiedBooks';
+import BorrowedBooks from './Librarian/components/BorrowedBooks';
+import AllBooks from './Librarian/components/AllBooks';
 function App() {
   const authContext = useContext(AuthContext)
   return (
@@ -19,9 +23,19 @@ function App() {
           <Route path='/dashboard'>
             <StartingPage />
           </Route>
-          <Route path='/auth'>
-            <AuthPage />
+          <Route path='/librarianDashboard'>
+            <LibrarianDashboard />
           </Route>
+          <Route path='/buyiedBooks'>
+            <BuyiedBooks />
+          </Route>
+          <Route path='/borrowedBooks'>
+            <BorrowedBooks />
+          </Route>
+          <Route path='/allBooks'>
+            <AllBooks />
+          </Route>
+
           {authContext.isLoggedIn && <Route path='/profile'>
             <Profile />
           </Route>}

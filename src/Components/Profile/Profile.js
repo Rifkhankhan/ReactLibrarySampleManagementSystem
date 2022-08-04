@@ -7,11 +7,17 @@ const Profile = () => {
   const bookContext = useContext(BookContext)
   const userId = localStorage.getItem('token')
   const userBooks = bookContext.getUserBooks(userId)
+  let BooksExist =false
+
+  if(userBooks)
+  {
+    BooksExist = true
+  }
     return (
       <Fragment>
-        <section className={classes.starting}>
+        {BooksExist && <section className={classes.starting}>
           {userBooks.map(book=>(<Cart key={book.purchasId} {...book}  />))}
-        </section>
+        </section>}
     </Fragment>
 
       );

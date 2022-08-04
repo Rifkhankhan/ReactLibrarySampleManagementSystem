@@ -53,3 +53,6 @@
   background-color: #c291e2;
   color: #38015c;
 }
+nav a:active,nav a.activate{
+  text-decoration: overline;
+}

@@ -13,7 +13,7 @@ const BookDetails = (props) => {
     const authContext = useContext(AuthContext)
     const book = bookContext.getBook(params.bookId)
     const userId = authContext.token
-
+    const canPurchase = userId === 'customer1' || userId === 'customer2'
     const onBuyBookHandler = () =>{
         if(authContext.isLoggedIn)
         {
@@ -42,12 +42,17 @@ const BookDetails = (props) => {
     
     </div>
     
-    <form onSubmit={formSubmitHandler}>
-        <div className={classes.button}>
-           <Button type="submit" onClick={onBuyBookHandler}>Buy</Button>
-           <Button type="submit" onClick={onBorrowBookHandler}>Borrow</Button>
-        </div>
-    </form>
+    {
+      canPurchase && ( 
+          <form onSubmit={formSubmitHandler}>
+            <div className={classes.button}>
+              <Button type="submit" onClick={onBuyBookHandler}>Buy</Button>
+              <Button type="submit" onClick={onBorrowBookHandler}>Borrow</Button>
+            </div>
+          </form>
+        )
+    }
+   
   </div>;
 };
 

@@ -45,6 +45,8 @@ const checkUserData = (userData) =>{
     if(isUserEmailExist && isUserPasswordEXist)
     {
         token = users.find(user=>user.email === userData.email).userId
+        const role = users.find(user=>user.email === userData.email).role
+        localStorage.setItem('role',role)
     }
     return token
 }
@@ -63,6 +65,7 @@ export const AuthContextProvider = (props) =>{
     const loguotHandler = () =>{
         setToken(null)
         localStorage.removeItem('token')
+        localStorage.removeItem('role')
     }
 
     const contextValues = {

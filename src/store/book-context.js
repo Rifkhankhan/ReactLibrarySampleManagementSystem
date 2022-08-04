@@ -229,17 +229,25 @@ export const BookContextProvider = (props) =>{
     }
 
     const buyBookHandler = (Data) =>{
-      usersBook.find(userBook => userBook.userId === Data.userId).books.push({...Data.book,purchasId:Math.random().toString()})
+      usersBook.find(userBook => userBook.userId === Data.userId).books.push({...Data.book,purchasId:Math.random().toString(),type:'buy'})
       setUsersBooks(usersBooks)
     }
 
     const borrowBookHandler = (Data) => {
-      console.log(Data);
+      usersBook.find(userBook => userBook.userId === Data.userId).books.push({...Data.book,purchasId:Math.random().toString(),type:'borrow'})
+      setUsersBooks(usersBooks)
     }
 
     const getUserBooksHandler = (userId) =>{
-        let Books = usersBooks.find(user => user.userId === userId).books
-        return [...Books]
+      let Books;
+        if(userId === 'customer1' || userId === 'customer2' )
+        {
+            Books = usersBooks.find(user => user.userId === userId).books
+            return [...Books]
+        }
+
+        return null
+        
     }
 
     const bookContextValues = {
