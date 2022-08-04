@@ -74,6 +74,62 @@ const StartingPageContent = () => {
       author:'Guido van Rossum',
       description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
       image:'https://images-na.ssl-images-amazon.com/images/I/51hH6DAw87L.jpg'
+    },
+    {
+      id:11,
+      title:'JavaScript',
+      author:'Guido van Rossum',
+      description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
+      image:'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1393223714l/460907.jpg'
+    },
+    {
+      id:12,
+      title:'Go',
+      author:'Guido van Rossum',
+      description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
+      image:'https://camo.githubusercontent.com/0eab9f4149f2481e91700c56fc015169f11f81fe5eb6534948a04bf1e57ac0c1/687474703a2f2f676f706c2e696f2f636f7665722e706e67'
+    },
+    {
+      id:13,
+      title:'JavaScript',
+      author:'Guido van Rossum',
+      description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
+      image:'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1393223714l/460907.jpg'
+    },
+    {
+      id:14,
+      title:'Go',
+      author:'Guido van Rossum',
+      description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
+      image:'https://camo.githubusercontent.com/0eab9f4149f2481e91700c56fc015169f11f81fe5eb6534948a04bf1e57ac0c1/687474703a2f2f676f706c2e696f2f636f7665722e706e67'
+    },
+    {
+      id:15,
+      title:'JavaScript',
+      author:'Guido van Rossum',
+      description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
+      image:'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1393223714l/460907.jpg'
+    },
+    {
+      id:16,
+      title:'Go',
+      author:'Guido van Rossum',
+      description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
+      image:'https://camo.githubusercontent.com/0eab9f4149f2481e91700c56fc015169f11f81fe5eb6534948a04bf1e57ac0c1/687474703a2f2f676f706c2e696f2f636f7665722e706e67'
+    },
+    {
+      id:17,
+      title:'JavaScript',
+      author:'Guido van Rossum',
+      description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
+      image:'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1393223714l/460907.jpg'
+    },
+    {
+      id:18,
+      title:'Go',
+      author:'Guido van Rossum',
+      description:'Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library',
+      image:'https://camo.githubusercontent.com/0eab9f4149f2481e91700c56fc015169f11f81fe5eb6534948a04bf1e57ac0c1/687474703a2f2f676f706c2e696f2f636f7665722e706e67'
     }
   ]
 

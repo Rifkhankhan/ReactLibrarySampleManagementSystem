@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import BookContext from '../store/book-context';
 
 import classes from './AuthForm.module.css';
 
@@ -10,7 +11,7 @@ const AuthForm = () => {
   const history = useHistory()
 
   //authContext
-//   const authContext = useContext(AuthContext)
+  const bookContext = useContext(BookContext)
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -22,38 +23,13 @@ const AuthForm = () => {
     const enteredemailRef = emailRef.current.value
     const enteredpasswordRef = passwordRef.current.value
 
-    let url 
-    if(isLogin)
+    if(enteredemailRef && enteredpasswordRef.trim().length >= 6)
     {
-      url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCiGWw0HrA_PeqXJt1m0ladXuPdoArqEpU'
+        const token = Math.random(100).toString()
+        localStorage.setItem('token',token)
+        bookContext.login(token)
+        history.push('/profile')
     }
-    else{
-      url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCiGWw0HrA_PeqXJt1m0ladXuPdoArqEpU'
-    } 
-
-   fetch(url,{
-      method:'POST',
-      body:JSON.stringify({email:enteredemailRef,password:enteredpasswordRef,returnSecureToken:true}),
-      headers:{'Content-Type': 'application/json'}
-     }).then(res=>{
-       if(res.ok)
-       {
-         return res.json()
-       }else{
-         res.json().then(data=>{
-           let errorMessage = 'authentication failed'
-           if(data && data.error && data.error.message)
-           {
-             errorMessage = data.error.message
-           }
-           throw new Error(errorMessage)
-         })
-       }
-     }).then((data)=>{
-        // const expirationTime = new Date(new Date().getTime() + +data.expiresIn*1000)
-        // authContext.login(data.idToken,expirationTime.toISOString())
-        history.replace('/')
-     }).catch(error=>alert(error.message))
   }
   return (
     <section className={classes.auth}>
@@ -66,7 +42,7 @@ const AuthForm = () => {
         </div>
         <div className={classes.control}>
           <label htmlFor='password'>Your Password</label>
-          <input type='password' id='password' name='password' ref={passwordRef} required />
+          <input type='password' id='password' name='password' minLength='6' ref={passwordRef} required />
         </div>
         <div className={classes.actions}>
           <button type='submit'>{isLogin ? 'Login' : 'Create Account'}</button>

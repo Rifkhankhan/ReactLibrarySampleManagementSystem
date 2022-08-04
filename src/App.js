@@ -6,7 +6,10 @@ import PageNotFound from './Pages/PageNotFound';
 import StartingPage from './Components/StartingPage/StartingPageContent'
 import Profile from './Components/Profile/Profile';
 import BookDetails from './UI/BookDetails';
+import { useContext } from 'react';
+import BookContext from './store/book-context';
 function App() {
+  const bookContext = useContext(BookContext)
   return (
     <Layout>
       <Switch>
@@ -19,9 +22,9 @@ function App() {
           <Route path='/auth'>
             <AuthPage />
           </Route>
-          <Route path='/profile'>
+          {bookContext.isLoggedIn && <Route path='/profile'>
             <Profile />
-          </Route>
+          </Route>}
 
           <Route path='/book/:bookId' exact>
             <BookDetails />
