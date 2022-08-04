@@ -5,6 +5,7 @@ import AuthPage from './Components/AuthPage'
 import PageNotFound from './Pages/PageNotFound';
 import StartingPage from './Components/StartingPage/StartingPageContent'
 import Profile from './Components/Profile/Profile';
+import BookDetails from './UI/BookDetails';
 function App() {
   return (
     <Layout>
@@ -21,9 +22,15 @@ function App() {
           <Route path='/profile'>
             <Profile />
           </Route>
+
+          <Route path='/book/:bookId' exact>
+            <BookDetails />
+          </Route>
+
           <Route path='*'>
             <PageNotFound />
           </Route>
+
       </Switch>
     </Layout>
   )

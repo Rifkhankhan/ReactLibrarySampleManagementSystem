@@ -1,0 +1,46 @@
+.div{
+    height: fit-content;
+    min-height: 10rem;
+    max-width: 50rem;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px black;
+    margin: 15px;
+    cursor: pointer;
+    width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0%;
+    margin: 1%;
+}
+
+.div:hover,.div:active{
+    background-color: aqua;
+}
+
+.div img
+{
+    width:fit-content;
+    height: 15rem;
+    display: block;
+    object-fit: contain;
+    padding: 0%;
+    margin: 0%;
+}
+.div div{
+    padding: 0%;
+    margin: 0%;
+}
+
+.div h3{
+    font-size: 30px;
+    margin: 5px;
+    padding: 0%;
+}
+
+.div p{
+    font-size: 20px;
+    font-style: italic;
+    margin: 5px;
+}
